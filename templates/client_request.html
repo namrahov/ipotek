@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>PASHA Bank</title>
+    <style>
+        body {
+            background: #f4f5f4;
+            padding: 0;
+            margin: 0;
+            font-family: RubiArial, "Helvetica Neue", Helvetica, sans-serif;
+            line-height: 24px;
+        }
+
+        .email-container {
+            max-width: 660px;
+            padding: 32px 64px;
+        }
+
+        .logo img {
+            display: block;
+            height: 100%;
+        }
+
+        .email-body {
+            padding: 48px 64px;
+            background: #fff;
+        }
+
+        .email-body h1 {
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .email-body h4 {
+            font-weight: 400;
+            margin-top: 32px;
+            margin-bottom: 39px;
+            color: #4e5251;
+        }
+
+        .body-items {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            padding-bottom: 25px;
+            width: 50%;
+        }
+
+        .item:nth-child(odd) {
+            width: 45%;
+            padding-right: 25px;
+        }
+
+        @media (max-width: 500px) {
+            .item {
+                width: 100%;
+            }
+        }
+
+        .item-key {
+            font-size: 14px;
+            color: #8b8e8d;
+        }
+
+        .item-value {
+            font-size: 16px;
+            color: #4e5251;
+        }
+    </style>
+</head>
+
+<body>
+<div class="email-container">
+    <div class="email-body">
+        <h1>Kredit ucun muraciet</h1><br>
+        <div class="body-items">
+            <div class="item">
+                <div class="item-key">Name</div>
+                <div class="item-value">{{Name}}</div>
+            </div>
+            <div class="item">
+                <div class="item-key">Surname</div>
+                <div class="item-value">{{Surname}}</div>
+            </div>
+            <div class="item">
+                <div class="item-key">Phone</div>
+                <div class="item-value">{{Phone}}</div>
+            </div>
+            <div class="item">
+                <div class="item-key">ProductName</div>
+                <div class="item-value">{{ProductName}}</div>
+            </div>
+            <div class="item">
+                <div class="item-key">PinCode</div>
+                <div class="item-value">{{PinCode}}</div>
+            </div>
+            <div class="item">
+                <div class="item-key">DateOfBirth</div>
+                <div class="item-value">{{DateOfBirth}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

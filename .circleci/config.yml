@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  microservice: pb-digital/microservice@1
+  golang: pb-digital/golang@1
+
+workflows:
+  ms-retail-products-info_workflows:
+    jobs:
+      - golang/validate_code:
+          context: BUILD
+      - golang/gosec_scan:
+          context: BUILD
+      - golang/gosec_send:
+          context: AWS_TEST
+          filters:
+            branches:
+              only: develop
+      - golang/send_to_sonar:
+          context: BUILD
+          requires:
+            - golang/validate_code
+      - microservice/validate_infra:
+          context: AWS_TEST
+      - microservice/deploy:
+          app-name: ms-retail-products-info
+          context: AWS_TEST
+          requires:
+            - microservice/validate_infra
+            - golang/validate_code
+          filters:
+            branches:
+              only: develop
+      - microservice/deploy:
+          app-name: ms-retail-products-info
+          context: AWS_PROD
+          requires:
+            - microservice/validate_infra
+            - golang/validate_code
+          filters:
+            branches:
+              only: master
+      - microservice/deploy:
+          app-name: ms-retail-products-info
+          context: AWS_DISASTER
+          requires:
+            - microservice/validate_infra
+            - golang/validate_code
+          filters:
+            branches:
+              only: master
