@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  microservice: pb-digital/microservice@1
-  golang: pb-digital/golang@1
+  microservice:
+  golang:
 
 workflows:
   ms-retail-products-info_workflows:
